@@ -1,0 +1,38 @@
+html, body{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	margin-top: 16px;
+}
+#result{
+	margin-left: 2px;
+	font-size: 45px;
+	text-align: right;
+	vertical-align: bottom;
+	width: 418px;
+	height: 50px;
+	border: 0.5px solid black;
+}
+td{
+	background-color: #f2f2f2;
+	border: 0.5px solid #DEDEDE;
+	width: 100px;
+	height: 50px;
+	color: #333;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	transition: 0.3s;
+	cursor: pointer;
+}
+td:hover{
+	background-color: #a6a6a6;
+}
+#equal{
+	background-color: #67A8E8;
+	transition: 0.3s;
+}
+#equal:hover{
+	background-color: #3a6aff;
+}
