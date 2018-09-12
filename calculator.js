@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	let hasOperator = false,
-		operand = "0",
+		operand = "",
 		result = "0",
 		operator = "";
 
@@ -16,7 +16,7 @@ $(document).ready(function(){
 		} else if (e.target.className === "operator") {
 
 		} else if (e.target.id === "dot"){
-			if (operand === "0" && !operand.includes(".")) {
+			if ((operand === "0"||operand === "") && !operand.includes(".")) {
 				operand = "0.";
 			} else if (operand !== "0" && !operand.includes(".")) {
 				operand += "."
@@ -26,6 +26,10 @@ $(document).ready(function(){
 			result = "0";
 		}
 
-		$("#result").html(operand);	
+		if (operand === "") {
+			$("#result").html(result);	
+		} else {
+			$("#result").html(operand);	
+		}
 	});
 });
