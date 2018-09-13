@@ -7,14 +7,12 @@ $(document).ready(function(){
 	$("#result").html(result);
 	$("table").click(function(e){
 		if (e.target.className === "num") {
-			if (hasOperator) {
-				result = operand;
-				operand = "0";
-			} else {
-				operand += e.target.innerHTML;
-			}
+			operand += e.target.innerHTML;
 		} else if (e.target.className === "operator") {
-
+			operator = e.target.innerHTML;
+			hasOperator = true;
+			result = operand;
+			operand = "";
 		} else if (e.target.id === "dot"){
 			if ((operand === "0"||operand === "") && !operand.includes(".")) {
 				operand = "0.";
@@ -24,6 +22,20 @@ $(document).ready(function(){
 		} else if (e.target.id === "AC") {
 			operand = "";
 			result = "0";
+		} else if (e.target.id === "equal" && hasOperator) {
+			if (operator === "+") {
+				result = parseFloat(result) + parseFloat(operand);
+				operand = "";
+			} else if (operator === "-") {
+				result = parseFloat(result) - parseFloat(operand);
+				operand = "";
+			} else if (operator === "×") {
+				result = parseFloat(result) * parseFloat(operand);
+				operand = "";
+			} else if (operator === "÷") {
+				result = parseFloat(result) / parseFloat(operand);
+				operand = "";
+			}
 		}
 
 		if (operand === "") {
